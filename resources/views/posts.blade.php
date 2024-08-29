@@ -8,7 +8,6 @@
 
 <article>
 @foreach($posts as $post)
-    @dump($post)
 {{--// toont type en toont alle inhoud--}}
 
 {{--    {{ $post }}
