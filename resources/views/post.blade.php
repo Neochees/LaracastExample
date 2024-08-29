@@ -1,20 +1,17 @@
 <!doctype html>
-<html lang="en">
 <link rel="stylesheet" href="/app.css">
-<head>
-    <title>Document</title>
-</head>
+
+    <title>My blog</title>
+
 <body>
-
-<article>
-@foreach($posts as $post)
-{{--    @dump($post) // toont type en toont alle inhoud--}}
-{{--    {{ $post }} // escaped alle inhoud van een string waarde / variabel--}}
-    {!! $post->body !!}
-{{--        // toont unescaped inhoud van een string waarde / variabel--}}
-@endforeach
-</article>
+    <article>
+        <h1><?= $post->title; ?></h1>
 
 
+        <div>
+            <?= $post->body; ?>
+        </div>
+    </article>
+{{--    <a href="/">Back</a>--}}
 </body>
-</html>
+
