@@ -8,12 +8,12 @@ use function PHPSTORM_META\map;
 
 Route::get('/', function () {
     return view('posts', [
-        'posts' => Post::with('category')->get()
+        'posts' => Post::latest()->with('category', 'author')->get()
     ]);
 
 });
 
-Route::get('posts/{post}', function (Post  $post) {
+Route::get('posts/{post}', function (Post $post) {
     return view('post', [
         'post' => $post
     ]);
@@ -22,5 +22,11 @@ Route::get('posts/{post}', function (Post  $post) {
 Route::get('categories/{category:slug}', function (Category $category) {
     return view('posts', [
         'posts' => $category->posts
+    ]);
+});
+
+Route::get('author/{author:username}', function (\App\Models\User $author) {
+    return view('posts', [
+        'posts' => $author->posts
     ]);
 });
