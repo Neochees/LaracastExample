@@ -91,7 +91,7 @@
                 </div>
                 @if ($errors->any())
                     <ul>
-                        @foreach($error->all() as $error)
+                        @foreach($errors->all() as $error)
                             <li class="text-red-500 text-xs">{{ $error }}</li>
                         @endforeach
                     </ul>
