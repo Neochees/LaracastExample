@@ -18,15 +18,14 @@ class SessionsController extends Controller
         ]);
 
         if(auth()->attempt($attributes)) {
-            session()->regenerate();
-
-            return redirect('/')->with('success', 'Welcome Back!');
+            return back()
+                ->withInput()
+                ->withErrors(['email' => 'Your provided credentials could not be verified.']);
         }
 
+        session()->regenerate();
 
-        return back()
-            ->withInput()
-            ->withErrors(['email' => 'Your provided credentials could not be verified.']);
+        return redirect('/')->with('success', 'Welcome Back!');
     }
     public function destroy()
     {
