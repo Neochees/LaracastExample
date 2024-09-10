@@ -89,7 +89,7 @@
                         Submit
                     </button>
                 </div>
-                @if ($error->any())
+                @if ($errors->any())
                     <ul>
                         @foreach($error->all() as $error)
                             <li class="text-red-500 text-xs">{{ $error }}</li>
